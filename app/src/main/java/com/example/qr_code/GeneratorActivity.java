@@ -32,7 +32,7 @@ public class GeneratorActivity extends AppCompatActivity {
     ImageView imageView;
     Button button, save, insertData;
     EditText editText;
-    String EditTextValue ;
+    String EditTextValue, imageFileName;
     public final static int QRcodeWidth = 500 ;
     Bitmap bitmap ;
     String TAG = "DEBUG";
@@ -53,7 +53,16 @@ public class GeneratorActivity extends AppCompatActivity {
             public void onClick(View v) {
                 EditTextValue = editText.getText().toString();
                 if(EditTextValue.equals("")){
-                    Toast.makeText(getApplicationContext(),"Please Insert Asset ID", Toast.LENGTH_SHORT).show();
+                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.US);
+                    Date now = new Date();
+                    imageFileName = "QR-CODE_"+formatter.format(now);
+                    try {
+                        bitmap = TextToImageEncode(imageFileName);
+                        imageView.setImageBitmap(bitmap);
+                    } catch (WriterException e) {
+                        e.printStackTrace();
+                    }
+//                    Toast.makeText(getApplicationContext(),"Please Insert Asset ID", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     try {
@@ -71,7 +80,11 @@ public class GeneratorActivity extends AppCompatActivity {
             public void onClick(View v) {
                 EditTextValue = editText.getText().toString();
                 if(EditTextValue.equals("")){
-                    Toast.makeText(getApplicationContext(),"Please Insert Asset ID", Toast.LENGTH_SHORT).show();
+                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.US);
+                    Date now = new Date();
+                    imageFileName = "QR-CODE_"+formatter.format(now);
+                    //Toast.makeText(getApplicationContext(),"Please Insert Asset ID", Toast.LENGTH_SHORT).show();
+                    saveImage(bitmap);
                 }
                 else {
                     saveImage(bitmap);
@@ -85,7 +98,16 @@ public class GeneratorActivity extends AppCompatActivity {
             public void onClick(View v) {
                 EditTextValue = editText.getText().toString();
                 if(EditTextValue.equals("")){
-                    Toast.makeText(getApplicationContext(),"Please Insert Asset ID", Toast.LENGTH_SHORT).show();
+                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.US);
+                    Date now = new Date();
+                    imageFileName = "QR-CODE_"+formatter.format(now);
+                  //  Toast.makeText(getApplicationContext(),"Please Insert Asset ID", Toast.LENGTH_SHORT).show();
+
+                    Bundle bundle = new Bundle();
+                    bundle.putString("assets_id", imageFileName);
+                    Intent myIntent = new Intent(GeneratorActivity.this, AddAssetsActivity.class);
+                    myIntent.putExtras(bundle);
+                    GeneratorActivity.this.startActivity(myIntent);
                 }
                 else {
                     Bundle bundle = new Bundle();

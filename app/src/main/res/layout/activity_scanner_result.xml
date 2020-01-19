@@ -8,19 +8,19 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    android:background="@color/colorAccent"
+    android:background="@drawable/asset2"
     tools:context="com.example.qr_code.ScannerResultActivity">
 
     <Button
         android:id="@+id/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:layout_gravity="center"
-        android:background="@drawable/button"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#E1865A"
         android:padding="8dp"
         android:text="Scan Barcode or QR code"
-        android:textSize="12dp"/>
+        android:textSize="12dp" />
 
     <EditText
         android:id="@+id/tvresult"
@@ -34,12 +34,12 @@
 
     <Button
         android:id="@+id/show_data"
-        android:layout_width="wrap_content"
+        android:layout_width="172dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:layout_gravity="center"
-        android:background="@drawable/button"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#E1865A"
         android:padding="8dp"
         android:text="Show Data"
-        android:textSize="12dp"/>
+        android:textSize="12dp" />
 </LinearLayout>

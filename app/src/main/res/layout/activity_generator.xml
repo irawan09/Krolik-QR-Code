@@ -1,67 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.qr_code.GeneratorActivity"
-    android:background="@color/colorAccent">
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-    </ScrollView>
+    android:background="@drawable/asset2"
+    android:orientation="vertical"
+    tools:context="com.example.qr_code.GeneratorActivity">
 
     <EditText
         android:id="@+id/editText"
-        android:layout_width="fill_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:hint="Insert asset ID"
+        android:layout_marginTop="32dp"
         android:gravity="center"
-        android:layout_marginTop="32dp"/>
+        android:hint="Insert asset ID" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="GENERATE"
         android:layout_below="@+id/editText"
         android:layout_centerHorizontal="true"
-        android:background = "@drawable/button"
-        android:layout_marginBottom="18dp" />
+        android:layout_marginBottom="18dp"
+        android:backgroundTint="#B66640"
+        android:text="GENERATE QR CODE" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/button" />
+        android:layout_below="@+id/button"
+        android:layout_centerHorizontal="true" />
 
-    <Button
-        android:id="@+id/save"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:text="SAVING PICTURE"
         android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true"
-        android:background = "@drawable/button"
-        android:layout_marginTop="18dp" />
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/insert"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:text="Insert Data"
-        android:layout_below="@+id/save"
-        android:layout_centerHorizontal="true"
-        android:background = "@drawable/button"
-        android:layout_marginTop="18dp" />
+        <Button
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView"
+            android:layout_gravity="center"
+            android:layout_marginTop="18dp"
+            android:backgroundTint="#B66640"
+            android:padding="16dp"
+            android:text="       SAVE QR CODE     " />
 
+        <Button
+            android:id="@+id/insert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="18dp"
+            android:backgroundTint="#B66640"
+            android:padding="16dp"
+            android:text="      Insert Data       " />
 
+    </LinearLayout>
 </RelativeLayout>
